@@ -1,6 +1,12 @@
-export const ItemListContainer = () => {
+import {ItemCount} from '../itemCount/itemCount'
+
+export const ItemListContainer = (props) => {
     return (    
-        <h3>Próximamente Nuestro Catálogo︁</h3>        
+        <div>
+            <h3>{props.greeting}</h3>  
+            <ItemCount stock="5" initial="1" /> 
+        </div>
+            
     )
-  }
+}
 

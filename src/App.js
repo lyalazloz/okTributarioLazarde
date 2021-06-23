@@ -2,11 +2,13 @@ import './App.css';
 import {NavBar} from './components/navBar/navBar'
 import {ItemListContainer} from './components/itemListContainer/itemListContainer'
 
-function App() {
+export function App() {
+  const greeting= "Próximamente Nuestro Catálogo"
+
   return (
     <div className="App">
       <NavBar/>
-      <ItemListContainer/>
+      <ItemListContainer greeting= {greeting}/>
       <h1>hola</h1>
     </div>
   );

@@ -4,7 +4,7 @@ import logo from '../navBar/logoOk.PNG'
 export const NavBar = () => {
   return (      
     <nav>
-      <img src={logo} />
+      <img src={logo} alt="logo-ok-tributario"/>
       <ul>
         <li><a href="#">Inicio</a></li>
         <li><a href="#">Capacitaciones</a>
