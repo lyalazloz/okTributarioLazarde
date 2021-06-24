@@ -1,0 +1,155 @@
+.navbar {
+	width: 100%;
+	padding: 10px;
+	background-color: #1a1a27;
+	box-sizing: border-box;
+}
+
+.navbar div .img{
+	justify-self: left;
+}
+
+.navbar .contenido {	
+	display:flex;
+	justify-content: space-between;
+	margin: 0 auto;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+  
+.dropdown .dropbtn {
+    font-size: 16px;  
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: gray;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 14px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+.bars ul {
+	display: flex;
+	align-items: center;
+	list-style: none;
+	justify-content: space-between;
+	
+}
+
+.bars ul li {
+	display: flex;
+	align-items: center;
+	list-style: none;
+	justify-content: space-between;
+	
+}
+
+.bars ul li a {
+	text-decoration: none;
+	color:#a2a3b7;
+	transition: 1s;
+    padding: 0px 14px;
+}
+
+.bars ul li a:hover {
+	text-decoration: none;
+	color:white;
+}
+
+.bars-button {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: rgba(0, 0, 0, .8);
+	display: none;
+	position: fixed;
+	z-index: 99;
+	left: 7px;
+	top: 11px;
+	color: #a2a3b7;
+	cursor: pointer;
+}
+
+
+.Cart {
+    display: block;
+    text-align: left;
+    
+}
+
+@media screen and (max-width: 768px) {
+    .navbar .contenido {
+        justify-content: flex-end;
+    }
+
+    .bars-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bars {
+        position: fixed;
+        background: rgba(0, 0, 0, .5);
+        z-index: 98;
+        top: 0;
+       
+        width: 100vw;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        transition: .3s;
+    }
+
+    .bars.is-active {
+        left: 0;
+    }
+
+    .bars ul {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+   
+    .bars ul li a {
+        color: #000;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+}
