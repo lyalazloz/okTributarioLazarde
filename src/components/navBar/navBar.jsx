@@ -1,13 +1,12 @@
-import {CartWidget} from '../cartWidget/cartWidget'
+import React from 'react';
+import {CartWidget} from '../cartWidget/cartWidget.jsx'
 import logo from '../navBar/logoOk.PNG'
-import './navBar.css';
+import './navBar.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
-
-const chevron = <FontAwesomeIcon icon={faChevronDown} />
-
 export const NavBar = () => {
+  const chevron = <FontAwesomeIcon icon={faChevronDown} />
   return (    
     <div className="navbar">
       <i className="fa fa-bars bars-button" aria-hidden="true" id="bars-button"></i>
@@ -17,10 +16,10 @@ export const NavBar = () => {
           <ul>
             <li><a href="#">Inicio</a></li>
               <ul>
-                <div class="dropdown">
-                  <button class="dropbtn">Capacitaciones {chevron}
+                <div className="dropdown">
+                  <button className="dropbtn">Capacitaciones {chevron}
                   </button>
-                  <div class="dropdown-content">
+                  <div className="dropdown-content">
                     <li><a href="#">Capacitaciones Premium</a></li>
                     <li><a href="#">Capacitaciones Gratuitas</a></li>
                   </div>

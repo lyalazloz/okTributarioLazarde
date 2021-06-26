@@ -1,0 +1,24 @@
+.itemListContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+
+    & h1 {
+        
+    text-align: center;
+
+    }
+
+    & .productsContainer {
+        display: flex;    
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        & div {
+            flex: 1;
+        }
+    }
+}
+

@@ -1,0 +1,27 @@
+
+
+.itemCount{
+    
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    padding: 14px;
+
+    & .wrapper {
+        display: flex;    
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    
+        & div {
+            flex: 1;
+
+            & .onSubstrackButton .onAddButton{
+                color: gray;
+            }
+        }
+    }
+}
+
+   
