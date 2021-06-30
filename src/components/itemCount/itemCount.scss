@@ -17,8 +17,14 @@
         & div {
             flex: 1;
 
-            & .onSubstrackButton .onAddButton{
+            & .onSubstrackButton .onPlusButton{
                 color: gray;
+            }
+
+            & .onSubstrackButton:disabled .onPlusButton:disabled {
+              border: 1px solid #999999;
+              background-color: #cccccc;
+              color: #666666;
             }
         }
     }

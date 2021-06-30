@@ -4,21 +4,21 @@ import "../itemListContainer/itemListContainer.scss"
 
 export const ItemListContainer = ( {greeting}) =>{
 
-    const [products, setProducts] = useState([])
+    const [items, setItems] = useState([])
 
     useEffect(() => {
-        async function fetchData() {
-            const response = await fetch("../products.json");
+        const getItems = async () => {
+            const response = await fetch("../items.json");
             const result = await response.json()
-            setProducts(result)
+            setItems(result)
         }
-        fetchData();
+        getItems();
     }, [2000]); 
 
     return(
-        <div className="itemListContainer" >
+        <section className="itemListContainer" >
             <h1>{greeting}</h1>
-            <ItemList products={products}/>        
-        </div>
+            <ItemList items={items}/>        
+        </section>
     )
 }

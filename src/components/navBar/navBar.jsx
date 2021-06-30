@@ -8,7 +8,7 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 export const NavBar = () => {
   const chevron = <FontAwesomeIcon icon={faChevronDown} />
   return (    
-    <div className="navbar">
+    <header className="navbar">
       <i className="fa fa-bars bars-button" aria-hidden="true" id="bars-button"></i>
       <div className="contenido">
         <nav className="bars">
@@ -32,7 +32,7 @@ export const NavBar = () => {
         </nav>
         <a href="#"><CartWidget/></a>
       </div>
-    </div>
+    </header>
   )
 }
 

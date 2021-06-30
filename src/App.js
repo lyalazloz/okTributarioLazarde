@@ -5,10 +5,10 @@ import { ItemListContainer } from './components/itemListContainer/itemListContai
 
 function App() {
   return (
-    <div className="app">
+    <main className="app">
       <NavBar/>
       <ItemListContainer greeting={'Bienvenido!'} />
-    </div>
+    </main>
   )
 }
 

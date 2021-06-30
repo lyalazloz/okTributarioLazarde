@@ -1,15 +1,14 @@
 import React from 'react'
-import {Item} from '../item/Item.jsx'
+import {Item} from '../item/item.jsx'
 import "../itemList/itemList.scss"
 
-
-export const ItemList=({products})=> {
+export const ItemList=({items})=> {
    
     return (
         <div  className="itemList">
-            {products.map(product =>{
-                return <Item product={product} key={product.id}/>
-             })
+            {items.map(item =>{
+                return <Item item={item} key={item.id}/>
+                })
             }
         </div>
     )

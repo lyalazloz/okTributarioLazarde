@@ -1,25 +1,22 @@
 import React from 'react'
 import "./item.scss"
-import {ItemCount} from '../itemCount/ItemCount.jsx'
+import {ItemCount} from '../itemCount/itemCount.jsx'
 
-export const Item=({product})=> {
+export const Item=({item})=> {
     return ( 
-        <div className="item">
-            
-            <div className="itemPicture" ><img src={product.pictureUrl} alt={product.alt} /></div>
+        <article className="item" id={item.id}>            
+            <div className="itemPicture" ><img src={item.pictureUrl} alt={item.alt} /></div>
             <div className="itemBody" >
-                <h3 className="itemTitle">{product.title}</h3>
+                <h3 className="itemTitle">{item.title}</h3>
                 <div className="itemDescription">
-                <h5>{product.description}</h5>
+                <p>{item.description}</p>
                 </div>
                 <div className="itemPrice">
-                    <h3>{product.price}</h3>
-                </div>   
-                <div>
-                    <ItemCount stock={product.stock}  initial="1"/>
+                    <h3>{item.price}</h3>
                 </div>
+                <ItemCount stock={item.stock}  initial="1"/>
             </div>                        
-        </div>
+        </article>
     )
 }
 
