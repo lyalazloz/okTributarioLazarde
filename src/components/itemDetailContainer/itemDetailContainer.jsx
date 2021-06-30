@@ -1,6 +1,5 @@
 import React,{useEffect, useState} from "react"
-import { Item } from "../item/item";
-import { ItemList } from "../itemList/itemList"
+import { ItemDetail } from "../itemDetail/itemDetail";
 import "../itemListContainer/itemListContainer.scss"
 
 export const ItemDetailContainer = () =>{
@@ -16,5 +15,5 @@ export const ItemDetailContainer = () =>{
     getItem();
   }, [2000]); 
 
-  return <ItemDetail/>      
+  return <ItemDetail item= {item}/>      
 }
