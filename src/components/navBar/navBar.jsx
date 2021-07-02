@@ -1,36 +1,46 @@
 import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import {CartWidget} from '../cartWidget/cartWidget.jsx'
 import logo from '../navBar/logoOk.PNG'
 import './navBar.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+
 
 export const NavBar = () => {
   const chevron = <FontAwesomeIcon icon={faChevronDown} />
+  const categories = ['Premium', 'Gratuitas', 'Próximas']
+
   return (    
     <header className="navbar">
       <i className="fa fa-bars bars-button" aria-hidden="true" id="bars-button"></i>
       <div className="contenido">
         <nav className="bars">
-          <div><img src={logo} alt="logo-ok-tributario"/></div>          
+          <div className="logoContainer">
+            <Link to="/"><img src={logo} alt="logo-ok-tributario"/></Link>
+          </div>          
           <ul>
-            <li><a href="#">Inicio</a></li>
-              <ul>
+            <Link to="/"><li>Inicio</li></Link>
+              <ul className="categories">
                 <div className="dropdown">
-                  <button className="dropbtn">Capacitaciones {chevron}
-                  </button>
+                  <NavLink to="/">
+                    <button className="dropbtn">Capacitaciones {chevron}</button>
+                  </NavLink>
                   <div className="dropdown-content">
-                    <li><a href="#">Capacitaciones Premium</a></li>
-                    <li><a href="#">Capacitaciones Gratuitas</a></li>
+                    {categories.map((category)=>(
+                      <NavLink to={`/category/${category.toLowerCase()}`}>
+                        <li className="category">{category}</li>
+                      </NavLink>
+                    ))}                    
                   </div>
                 </div>
               </ul> 
-            <li><a href="#">Nosotros</a></li>
-            <li><a href="#">Publicaciones</a></li>
-            <li><a href="#">Conectémos</a></li>            
+            <NavLink to="/"><li>Nosotros</li></NavLink>
+            <NavLink to="/"><li>Publicaciones</li></NavLink>
+            <NavLink to="/"><li>Conectémos</li></NavLink>            
           </ul> 
         </nav>
-        <a href="#"><CartWidget/></a>
+        <Link to="/"><CartWidget/></Link>
       </div>
     </header>
   )

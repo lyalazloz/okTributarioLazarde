@@ -5,10 +5,10 @@ import {ItemCount} from '../itemCount/itemCount.jsx'
 export const ItemDetail=({item})=> {
     return ( 
         <article className="itemDetail" id={item.id}>
-            <div class="wrapper">
-                <div class="column">
+            <div className="wrapper">
+                <div className="row">
                     <div className="itemPicture" ><img src={item.pictureUrl} alt={item.alt} /></div>
-                    <div className="itemBody column" >
+                    <div className="itemBody row" >
                         <div className="itemTitle">
                             <h3>{item.title}</h3>
                         </div>
@@ -20,7 +20,7 @@ export const ItemDetail=({item})=> {
                         </div>
                         <div>
                             <ItemCount stock={item.stock}  initial="1"/>
-                        </div>                    
+                        </div>                  
                     </div>
                 </div>
             </div>                 

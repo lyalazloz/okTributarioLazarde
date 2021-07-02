@@ -1,15 +1,27 @@
+import React from "react";
+import { BrowserRouter as Router, Switch, Route, } from "react-router-dom";
 import './App.css';
 import { NavBar } from './components/navBar/navBar';
-import './components/navBar/navBar.scss';
-import { ItemListContainer } from './components/itemListContainer/itemListContainer';
+import { ItemListContainer } from './pages/itemListContainer/itemListContainer';
+import { ItemDetailContainer } from './pages/itemDetailContainer/itemDetailContainer'
 
-function App() {
+export const App = () => {
   return (
-    <main className="app">
-      <NavBar/>
-      <ItemListContainer greeting={'Bienvenido!'} />
-    </main>
-  )
+    <Router>
+      <main>   
+        <NavBar/>      
+        <Switch>
+          <Route exact path="/">
+            <ItemListContainer/>            
+          </Route>
+          <Route exact path="/category/:id">
+            <ItemListContainer/>            
+          </Route>
+          <Route exact path="/item/:id">
+            <ItemDetailContainer/>            
+          </Route>
+        </Switch>
+      </main>
+    </Router>
+  );
 }
-
-export default App;

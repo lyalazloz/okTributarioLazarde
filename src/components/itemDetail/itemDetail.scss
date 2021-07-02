@@ -1,86 +1,97 @@
-
 .itemDetail {
+  background-color: lightblue;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  width: 95%;
+  align-self: center;
+  height: 98%;
+  
 
-    margin: 10px;
-    border: 1px solid #ccc;
-    box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
-    background-color: lightblue;
-    width: 300px;
+  & .wrapper {
     display: flex;
-    flex-direction: column;
-    border-radius: 5px;    
-    color: white;
-    
-    & .wrapper {
+    justify-content: center;
+
+    & .row {
+      display: flex;
+      flex-direction: row;
+
+      & div {
+        flex: 1;
+      }
+
+      & .itemPicture {
+        position: relative;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        padding-top: 0.3em;
+        border-radius: 5px 5px 0px;
         display: flex;
+        justify-content: center;
 
-        & .column {
-            display: flex;
-            flex-direction: column;
-
-            & div {
-            flex: 1;
-            }
-        
-            & .itemPicture {
-                position: relative;
-                width: 100%;
-                height: auto;
-                object-fit: cover;
-                padding-top: .3em;
-                border-radius: 5px 5px 0px;
-                display: flex;
-                justify-content: center;
-        
-                & img {
-                    background-color: white;
-                    width: 95%;
-                    object-fit: cover;
-                }
-            }
-        
-            & .itemBody {
-        
-                position: relative;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                height: 100%;
-                padding: 0 1em;
-                text-align: center;
-                object-fit: cover;
-        
-               & .itemTitle {
-                    text-align: center;
-                    font-size: 16px;
-                    color: white;
-                    margin-bottom: 0px;
-                    align-items: stretch
-                }
-                
-                & .itemDescription {
-                    text-align: justify;
-                    position: relative;            
-                    font-size: 15px;
-                    height: 1.5em;
-                    color: white;
-                    margin: 0px;
-                    
-                    & p {
-                        margin: 0px;
-                    }
-                }
-        
-                & .itemPrice {
-                    text-align: center;
-                    font-size: 30px;
-                    color:white;
-
-                    & h3 {
-                        margin: 0px;
-                    }
-                }
-            }
+        & img {
+          background-color: white;
+          width: 95%;
+          object-fit: cover;
         }
+      }
+
+      & .itemBody {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        padding: 0 1em;
+        text-align: center;
+        object-fit: cover;
+
+        & .itemTitle {
+          text-align: center;
+          font-size: 16px;
+          color: white;
+          margin-bottom: 0px;
+          align-items: stretch;
+        }
+
+        & .itemDescription {
+          text-align: justify;
+          position: relative;
+          font-size: 15px;
+          height: 1.5em;
+          color: white;
+          margin: 0px;
+
+          & p {
+            margin: 0px;
+          }
+        }
+
+        & .itemPrice {
+          text-align: center;
+          font-size: 30px;
+          color: white;
+
+          & h3 {
+            margin: 0px;
+          }
+        }
+      }
     }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .itemDetail {
+    width: 100vw;
+    margin: 5px 0;
+    border: none;
+
+  }
+      
 }

@@ -124,41 +124,52 @@ $color4: black;
 }
 
 @media screen and (max-width: 768px) {
-    .navbar .contenido {
-        justify-content: flex-end;
-    }
-
-    .bars-button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .bars {
-        position: fixed;
-        background: $color4;
-        z-index: 98;
-        top: 0;       
+    header {
         width: 100vw;
-        bottom: 0;
-        display: flex;
-        justify-content: center;
-        transition: .3s;
 
-        & ul {
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-    
-            & li a {
-                color: $color4;
-                font-weight: 700;
-                text-decoration: underline;
+        & .navbar {
+
+            & .contenido {
+                display: flex;
+                justify-content: flex-start;
+
+                & .bars {
+                    position: fixed;
+                    background: $color4;
+                    z-index: 98;
+                    top: 0;       
+                    width: 50vw;
+                    height: 50vh;
+                    bottom: 0;
+                    display: flex;
+                    justify-content: center;        
+                    transition: .3s;
+
+                    .barButton {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+        
+                    & .logoContainer{
+                        display: none;
+                    }
+        
+                    & ul {
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: flex-start;
+                        padding-inline-start: 0;
+
+                        & li a {
+                            color: $color4;
+                            font-weight: 700;
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            
             }
         }
-    }
-
-    .bars.is-active {
-        left: 0;
     }
 }
