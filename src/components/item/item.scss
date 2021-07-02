@@ -1,97 +1,95 @@
-
-
 .item {
+  background-color: lightblue;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  width: 300px;
 
-    margin: 10px;
-    border: 1px solid #ccc;
-    box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
-    background-color: lightblue;
-    width: 300px;
+  & .wrapper {
     display: flex;
-    flex-direction: column;
-    border-radius: 5px;    
-    color: white;
-    
-    & .wrapper {
+
+    & .column {
+      display: flex;
+      flex-direction: column;
+
+      & div {
+        flex: 1;
+      }
+
+      & .itemPicture {
+        border-radius: 5px 5px 0px;
         display: flex;
+        height: auto;
+        justify-content: center;
+        object-fit: cover;
+        padding-top: 0.3em;
+        position: relative;
+        width: 100%;
 
-        & .column {
-            display: flex;
-            flex-direction: column;
-
-            & div {
-            flex: 1;
-            }
-        
-            & .itemPicture {
-                position: relative;
-                width: 100%;
-                height: auto;
-                object-fit: cover;
-                padding-top: .3em;
-                border-radius: 5px 5px 0px;
-                display: flex;
-                justify-content: center;
-        
-                & img {
-                    background-color: white;
-                    width: 95%;
-                    object-fit: cover;
-                }
-            }
-        
-            & .itemBody {
-        
-                position: relative;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                height: 100%;
-                padding: 0 1em;
-                text-align: center;
-                object-fit: cover;
-        
-               & .itemTitle {
-                    text-align: center;
-                    font-size: 16px;
-                    color: white;
-                    margin-bottom: 0px;
-                    align-items: stretch
-                }
-                
-                & .itemDescription {
-                    text-align: justify;
-                    position: relative;            
-                    font-size: 15px;
-                    height: 1.5em;
-                    color: white;
-                    margin: 0px;
-                    
-                    & p {
-                        margin: 0px;
-                    }
-                }
-        
-                & .itemPrice {
-                    text-align: center;
-                    font-size: 30px;
-                    color:white;
-
-                    & h3 {
-                        margin: 0px;
-                    }
-                }
-            }
+        & img {
+          background-color: white;
+          object-fit: cover;
+          width: 95%;
         }
+      }
+
+      & .itemBody {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-between;
+        object-fit: cover;
+        padding: 0 1em;
+        position: relative;
+        text-align: center;
+
+        & a {
+          text-decoration-line: none;
+        }
+
+        & .itemTitle {
+          align-items: stretch;
+          color: white;
+          font-size: 16px;
+          margin-bottom: 0px;
+          text-align: center;
+        }
+
+        & .itemDescription {
+          color: white;
+          font-size: 15px;
+          margin: 0px;
+          position: relative;
+          text-align: justify;
+
+          & p {
+            margin: 0px;
+          }
+        }
+
+        & .itemPrice {
+          color: white;
+          font-size: 30px;
+          text-align: center;
+
+          & h3 {
+            margin: 0px;
+            
+          }
+        }
+      }
     }
+  }
 }
 
 @media screen and (max-width: 768px) {
-    .item {
-        width: 100vw;
-        margin: 5px 0;
-        border: none;
-
-    }
-        
+  .item {
+    border: none;
+    margin: 5px 0;
+    width: 100vw;
+  }
 }
