@@ -1,7 +1,7 @@
 import { useState } from "react";
 import './itemCount.scss';
 
-export const ItemCount = ({ stock, initial, onAdd }) => {
+export const ItemCount = ({ stock, initial=1, onAdd }) => {
   const [stockDisponible, setStockDisponible] = useState(parseInt(stock));
   const [count, setCount] = useState(parseInt(initial));
 
@@ -37,13 +37,14 @@ export const ItemCount = ({ stock, initial, onAdd }) => {
           <p> {count} </p>
         </div>
         <div>
-          <button className="onPlusButton" onClick={handleCount("+")} disabled={ count >= stock}>
+          <button className="onPlusButton" onClick={handleCount("+")} disabled={count >= stock}>
           ✚
           </button>
         </div>
       </div>
       <div>
-        <button className="onAddButton" onClick={onAdd} type="submit" disabled={ stock == 0 }>Agregar al Carrito</button>
+        {/* eslint-disable-next-line*/}
+        <button className="onAddButton" onClick={onAdd} value={count} type="submit" disabled={ stock == 0 }>Agregar al Carrito</button>                
       </div>     
     </div>
   )

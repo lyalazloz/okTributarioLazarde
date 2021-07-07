@@ -3,13 +3,13 @@ import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { CartWidget } from "../cartWidget/cartWidget.jsx";
-import logo from "../navBar/logoOk.PNG";
+import logo from "../../assets/img/logoOk.PNG";
 import "./navBar.scss";
 
 export const NavBar = () => {
   const chevron = <FontAwesomeIcon icon={faChevronDown} />;
   const categories = ["Premium", "Gratuitas", "Próximas"];
-  const navLinks = ["Nosotros", "Publicaciones", "Conectémos"];
+  const navLinks = ["Nosotros", "Publicaciones", "Conectemos"];
 
   return (
     <header className="navbar">

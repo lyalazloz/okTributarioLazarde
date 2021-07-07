@@ -7,9 +7,7 @@ import "./itemListContainer.scss";
 export const ItemListContainer = ({ greeting }) => {
   const { id } = useParams();
   const [items, setItems] = useState([]);
-
-  console.log(id);
-
+  
   useEffect(() => {
     const getItems = () => {
       return id ? ITEMS.filter((item) => item.categoryId === id) : ITEMS;
