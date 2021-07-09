@@ -18,6 +18,7 @@ export const ItemDetail = ({ item }) => {
     
     document.getElementById("buying").style.display="none"
     document.getElementById("bought").style.display="block"
+    
   }
 
   return (

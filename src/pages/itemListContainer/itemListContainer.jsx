@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import ITEMS from "../../data/items.json";
 import { ItemList } from "../../components/itemList/itemList";
 import "./itemListContainer.scss";
+// import { dataBase } from "../../firebase/firebase";
 
 export const ItemListContainer = ({ greeting }) => {
   const { id } = useParams();
@@ -24,3 +25,18 @@ export const ItemListContainer = ({ greeting }) => {
     </section>
   );
 };
+
+
+///
+
+// useEffect(() => {
+//   setLoading(true);
+//   const db = getFirestore();
+//   const itemColletion = db.collection("items");
+
+//   itemColletion.get().then((querySnapshot) => {
+//     if(querySnapshot)
+//   })
+// }
+
+// )
