@@ -8,6 +8,8 @@ import "./itemListContainer.scss";
 export const ItemListContainer = ({ greeting }) => {
   const { id } = useParams();
   const [items, setItems] = useState([]);
+
+  
   
   useEffect(() => {
     const getItems = () => {

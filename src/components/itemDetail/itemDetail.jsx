@@ -1,24 +1,24 @@
-import { React, useState } from "react";
+import { React, useState, useContext } from "react";
 import { Link } from 'react-router-dom'
 import "./itemDetail.scss";
 import { ItemCount } from "../itemCount/itemCount.jsx";
+import { CartContext } from '../../context/cartContext'
 
 export const ItemDetail = ({ item }) => {
-  let {id, title, price, pictureUrl, description, stock, alt} = item 
-  const [countBought, setCountBought] = useState(0)
-  const [totalToPay, setTotalToPay] = useState(0)
+  
+  const {id, title, price, pictureUrl, description, stock, alt} = item 
+  const [totalToPay, setTotalToPay] = useState(0)    
+  const [quantity, setQuantity] = useState(0)
+  const [hidden, setHidden] = useState(false)
+  const { addItem } = useContext(CartContext)
 
-  const onAdd = (quantityToAdd) => {
+  const priceItem= quantity * price
+  setTotalToPay(priceItem)   
     
-    let bought= quantityToAdd.target.value
-    setCountBought(bought)
-    
-    price= bought * price
-    setTotalToPay(price)
-    
-    document.getElementById("buying").style.display="none"
-    document.getElementById("bought").style.display="block"
-    
+  const onAdd = (quantity) => {
+    setHidden(true)         
+    setQuantity(quantity)
+    addItem(item, quantity)
   }
 
   return (
@@ -37,19 +37,24 @@ export const ItemDetail = ({ item }) => {
             </div>
             <div className="itemPrice">
               <h3>${price}</h3>
+            </div >
+            <div hidden={!hidden}>
+            <ItemCount stock={stock} initial="1" onAdd={onAdd}/>  
             </div>
-            <div id="buying">
-              <ItemCount stock={stock} initial="1" onAdd={onAdd}/>
-            </div>
-            <div id="bought" style={{display: "none"}}>              
-              <p>Estás comprando {countBought} {title} por ${totalToPay}</p>
-              <Link to={'/cart'}>
+            <div id="bought" hidden={hidden}>              
+            <p>Estás comprando {quantity} {title} por ${totalToPay}</p>
+              <Link to='/cart'>
                 <button className="finishBuy">Terminar mi compra</button>
               </Link>
-            </div>  
+              <Link to='/'>
+                <button id='btnContinue'>Continuar comprando</button>
+              </Link>
+            </div>            
           </div>
         </div>
       </div>
     </article>
   );
 };
+
+

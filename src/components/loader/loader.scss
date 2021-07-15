@@ -1,11 +1,17 @@
 .loader {
     display: flex;
-    height: 100vh;
-    width: auto;
+    height: auto;
+    width: 100%;
     justify-content: center;
     object-fit: cover;
     position: relative;
     flex-direction: column;
     flex-wrap: nowrap;
-    align-items: center;    
+    align-items: center; 
+
+    & img {
+        height: auto;
+        width: 100%;
+    }
+       
 }

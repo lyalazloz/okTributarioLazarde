@@ -1,5 +1,4 @@
 import React from "react"
-// import loader from "../../assets/img/loaderTr.gif"
 import loading from "../../assets/img/loadingbar.gif"
 import "../loader/loader.scss"
 

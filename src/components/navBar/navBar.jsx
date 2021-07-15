@@ -9,7 +9,7 @@ import "./navBar.scss";
 export const NavBar = () => {
   const chevron = <FontAwesomeIcon icon={faChevronDown} />;
   const categories = ["Premium", "Gratuitas", "Próximas"];
-  const navLinks = ["Nosotros", "Publicaciones", "Conectemos"];
+  // const navLinks = ["Nosotros", "Publicaciones", "Conectemos"];
 
   return (
     <header className="navbar">
@@ -43,14 +43,14 @@ export const NavBar = () => {
                 </div>
               </div>
             </ul>
-            {navLinks.map((link) => (
+            {/* {navLinks.map((link) => (
               <NavLink to={`/${link.toLowerCase()}`}>
                 <li className="navLinks">{link}</li>
               </NavLink>
-            ))}
+            ))} */}
           </ul>
         </nav>
-        <Link to="/">
+        <Link to="/cart">
           <CartWidget />
         </Link>
       </div>

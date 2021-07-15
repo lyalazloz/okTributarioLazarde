@@ -1,10 +1,11 @@
 import { createContext, useState } from "react"
 
+export const CartContext = createContext();
 
-export const CartContext = createContext([])
+export const CartProvider = ({children, defaultValue=[],}) => {
 
-export const CartProvider = ({defaultValue= [], Children}) => {
     const [cart, setCart] = useState(defaultValue)
+    // const [quantity, setQuantity ] = useState(0)
 
     const isInCart = (id) => {
         return cart.find(item => item.id === id) ? true : false
@@ -19,7 +20,8 @@ export const CartProvider = ({defaultValue= [], Children}) => {
 
     const removeItem = (id) => {
         const newCart = cart.slice(id)
-        return newCart
+        setCart(newCart)
+        return newCart        
     }
 
     const clear = () => {
@@ -27,5 +29,5 @@ export const CartProvider = ({defaultValue= [], Children}) => {
         setCart(defaultValue)
     }
 
-    return <CartContext.Provider value= {{cart, addItem, isInCart, removeItem, clear, cartSize: cart.length}}> {Children} </CartContext.Provider>
+    return <CartContext.Provider value= {{cart, addItem, isInCart, removeItem, clear, cartSize: cart.length}}> {children} </CartContext.Provider>
 }
