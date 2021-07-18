@@ -12,9 +12,10 @@ export const Item = ({ item }) => {
               <img src={item.pictureUrl} alt={item.alt} />
             </div>
             <div className="itemBody column">              
-                <div className="itemTitle">
-                  <h3>{item.title}</h3>
-                </div>
+              <div className="itemTitle">
+                <h3>{item.title}</h3>
+              </div>
+              <p className='noStock' hidden={item.stock === 0 ? false : true}><span>Agotado</span></p>
             </div>
           </div>
         </div>
