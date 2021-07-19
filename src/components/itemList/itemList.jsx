@@ -2,11 +2,13 @@ import "../itemList/itemList.scss";
 import { db } from '../../firebase/firebase';
 import { Item } from "../item/item.jsx";
 import { Loader } from "../loader/loader.jsx";
+import { useParams } from "react-router-dom";
 import React , { useState, useEffect} from "react";
 
 export const ItemList = () => {
   const [item, setItem] = useState([]);   
-  const [loading, setLoading] = useState(false);  
+  const [loading, setLoading] = useState(false); 
+  const { id } = useParams(); 
 
   useEffect(() => { 
 
@@ -22,8 +24,7 @@ export const ItemList = () => {
       const items = querySnapshot.docs.map((doc) => {   
         let item = {id: doc.id, ...doc.data()}
         return item             
-      })
-      console.log("items: ", items)
+      })     
       setItem(items);
 
     }).catch((error) => {
@@ -34,13 +35,12 @@ export const ItemList = () => {
         
   },[])
 
-  return loading ? <Loader/> : (
-    <div  className="itemList">
-      {item.map(i =>{
-        return <Item item={i} key={i.id} />
-        })
-      }
-    </div>
-  );
-  
+  const itemsFilters= () =>{
+    return id ? item.filter((i) => i.categoryId === id) : item;
+  };
+  const itemL= itemsFilters(); 
+
+  return loading ? <Loader/> : itemL.map(i =>{
+    return <Item item={i} key={i.id} />
+  });  
 }
