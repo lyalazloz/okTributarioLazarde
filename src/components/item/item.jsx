@@ -9,7 +9,7 @@ export const Item = ({ item }) => {
         <div className="wrapper">
           <div className="column">
             <div className="itemPicture">
-              <img src={item.pictureUrl} alt={item.alt} />
+              <img src={item.pictureUrl} alt={item.pictureAlt} />
             </div>
             <div className="itemBody column">              
               <div className="itemTitle">
