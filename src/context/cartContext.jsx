@@ -5,17 +5,19 @@ export const CartContext = createContext();
 export const CartProvider = ({children, defaultValue=[],}) => {
 
     const [cart, setCart] = useState(defaultValue)
-    // const [quantity, setQuantity ] = useState(0)
+    const [quantity, setQuantity ] = useState(0)
 
     const isInCart = (id) => {
         return cart.find(item => item.id === id) ? true : false
     }
 
-    const addItem = (item, quantity) => {
+    const addItem = (item, count) => {
         if (isInCart(item.id)) {
-            item.quantity += quantity
+            const quantityToAdd = quantity + count
+            setQuantity(quantityToAdd)
         }
         setCart ({...cart, item})
+        
     }
 
     const removeItem = (id) => {

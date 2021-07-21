@@ -2,20 +2,17 @@ import "./itemListContainer.scss";
 import { db } from '../../firebase/firebase';
 import { ItemList } from "../../components/itemList/itemList";
 import { Loader } from "../../components/loader/loader";
-// import { useParams } from "react-router-dom";
 import React , { useState, useEffect} from "react";
 
 export const ItemListContainer = () => { 
 
   const [item, setItem] = useState([]);   
   const [loading, setLoading] = useState(false); 
-  // const { id } = useParams(); 
-  console.log(item)
-
+  
   useEffect(() => { 
 
     setLoading(true);    
-    const itemList = db.collection("products");    
+    const itemList = db.collection("products"); 
   
     itemList.get().then((querySnapshot) => {
       
