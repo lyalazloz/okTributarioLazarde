@@ -1,27 +1,22 @@
 import "./itemDetail.scss";
 import { CartContext } from '../../context/cartContext';
 import { ItemCount } from "../itemCount/itemCount.jsx";
-import { Link, useParams} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { React, useState, useContext} from "react";
 
-export const ItemDetail = (item) => {  
-  console.log(item)
-  
+export const ItemDetail = (item) => {
+  console.log(item)  
+
   const [hidden, setHidden] = useState(false)
   const [quantity, setQuantity] = useState(0)
-  const [totalToPay, setTotalToPay] = useState(0)    
   const { addItem } = useContext(CartContext)
-  const { id } = useParams();     
-  console.log(id)  
+  const { total } = useContext(CartContext)
   
   const onAdd = (quantity) => {
     setHidden(true)         
     setQuantity(quantity)
     addItem(item, quantity)
   }
-
-  const priceItem= quantity * item.Price
-  setTotalToPay(priceItem)  
   
   return (
     <Link to={`/item/${item.id}`}>
@@ -45,7 +40,7 @@ export const ItemDetail = (item) => {
                 <ItemCount stock={item.stock} initial="1" onAdd={onAdd}/>  
               </div>
               <div id="bought" hidden={hidden}>              
-                <p>Estás comprando {quantity} {item.title} por ${totalToPay}</p>
+                <p>Estás comprando {quantity} {item.title} por ${total}</p>
                 <Link to='/cart'>
                   <button className="finishBuy">Terminar mi compra</button>
                 </Link>

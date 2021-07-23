@@ -4,7 +4,7 @@ import { CartContext } from '../../context/cartContext'
 import { Link } from 'react-router-dom'
 
 export const Cart = () => {
-  const { cart, removeItem, clearCart, totalPrice, endPurchase/*, orderId */ } = useContext(CartContext)
+  const { cart, removeItem, clearCart, total, endPurchase/*, orderId */ } = useContext(CartContext)
 
   return (
   <Fragment> { cart.length === 0 ? (
@@ -18,7 +18,7 @@ export const Cart = () => {
     </div>
     ):(
     <Fragment>
-      <p className='totalPrice'>Precio Total:  <span>AR$ {totalPrice}</span></p>
+      <p className='totalPrice'>Precio Total:  <span>AR$ {total}</span></p>
       <div className='cartContainerButtons'>
         <button className='btnClean' onClick={() => clearCart()} >Limpiar Carrito</button>
         <button className='btnEndPurchase' onClick={() => endPurchase()} >Finalizar Compra</button>
@@ -33,20 +33,18 @@ export const Cart = () => {
         <p className='accion'>Accion</p>
       </div>
       {cart.map(
-        ({ item, quantity }, index) => {
-          return (
-            <div className='cartItem-row'>
-              <p className='orderNumber'>{index + 1}</p>
-              <p className='descripcion'>{item.title}</p>
-              <p className='cantidad'>{quantity}</p>
-              <p className='precio'> $ {(item.price)}</p>
-              <p className='subtotal'>$ {(item.price * quantity)}</p>
-              <button className='accion btn-accion' 
-              onClick={() => removeItem(item.id, quantity)}>Delete</button>
-            </div>
-          )
-        })
-      }
+        ({ item, quantity }, index) => (
+          <div className='cartItem-row'>
+            <p className='orderNumber'>{index + 1}</p>
+            <p className='descripcion'>{item.title}</p>
+            <p className='cantidad'>{quantity}</p>
+            <p className='precio'> $ {(item.price)}</p>
+            <p className='subtotal'>$ {(item.price * quantity)}</p>
+            <button className='accion btn-accion' 
+            onClick={() => removeItem(item.id, quantity)}>Delete</button>
+          </div>
+        )
+      )}
     </div>
     </Fragment>   
   )}

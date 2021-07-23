@@ -2,7 +2,7 @@ import { useState } from "react";
 import './itemCount.scss';
 
 export const ItemCount = ({ stock, initial=1, onAdd }) => {
-  const [stockDisponible, setStockDisponible] = useState(parseInt(stock));
+  const [stockDisponible, setStockDisponible] = useState(stock);
   const [count, setCount] = useState(parseInt(initial));
 
   const handleCount = (operator) =>{
